@@ -32,6 +32,6 @@ public class EmployeeController {
         // add data to the spring model
         theModel.addAttribute("employees", employees);
 
-        return "list-employees"; // name of the view page we return the list to
+        return "employees/list-employees"; // name of the view page we return the list to
     }
 }
