@@ -34,4 +34,15 @@ public class EmployeeController {
 
         return "employees/list-employees"; // name of the view page we return the list to
     }
+    @GetMapping("/showFormForAdd")
+    public String showFormForAdd(Model theModel){
+
+        // create model attribute to the bind form data
+        Employee theEmployee = new Employee();
+
+        // our thymeleaf template will access this data for binding form data
+        theModel.addAttribute("employee", theEmployee);
+
+        return "employees/employee-form";
+    }
 }
