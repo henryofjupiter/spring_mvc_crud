@@ -45,6 +45,7 @@ public class EmployeeController {
         return "employees/employee-form";
     }
 
+    // GET MAPPING FOR UPDATE
     @GetMapping("/showFormForUpdate")
     // accepts a RequestParam for employeeId, which is passed over by the link that is created for the update button
     // that will enable us to look up an employee in the given database
@@ -58,6 +59,17 @@ public class EmployeeController {
 
         // send over to our form
         return "employees/employee-form";
+    }
+
+    // GET MAPPING FOR DELETE
+    @GetMapping("/delete")
+    public String delete(@RequestParam("employeeId") int theId){
+
+        // delete the employee
+        employeeService.deleteById(theId);
+        
+        // redirect to the /employees/list
+        return "redirect:/employees/list";
     }
 
     // add mapping for saving an employee
