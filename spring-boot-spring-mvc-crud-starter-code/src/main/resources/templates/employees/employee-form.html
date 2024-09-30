@@ -16,6 +16,10 @@
 <!--       th:action sends form data to /employees/save, and the th:object is the reference to the model attribute-->
 <!--        the same model attribute we set up in our employee controller-->
         <form action="#" th:action="@{/employees/save}" th:object="${employee}" method="POST">
+
+<!--            Add hidden form field to handle the update-->
+<!--            this will bind to the model attribute, and tell your app which employee to update-->
+            <input type ="hidden" th:field="*{id}">
 <!--            remember the *{} selects the property on the referenced th:object of employee-->
             <input type="text" th:field="*{firstName}" class ="form-control mb-4 w-25" placeholder="First Name">
             <input type="text" th:field="*{lastName}" class ="form-control mb-4 w-25" placeholder="Last Name">
